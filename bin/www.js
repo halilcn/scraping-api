@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 
 /**
+ * Import necessary stuff for run the app.
+ */
+require('../bootstrap.js')
+
+/**
  * Module dependencies.
  */
 

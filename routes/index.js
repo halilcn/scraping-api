@@ -1,5 +1,5 @@
-import users from './v1/users'
+import adverts from './v1/adverts'
 
 module.exports = app => {
-  app.use('/v1/users', users)
+  app.use('/v1/adverts', adverts)
 }
