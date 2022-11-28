@@ -1,13 +1,5 @@
-var express = require('express');
-var router = express.Router();
+import users from './v1/users'
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-router.get('/test', function(req, res, next) {
-  res.json({test:'okey'})
-});
-
-module.exports = router;
+module.exports = app => {
+  app.use('/v1/users', users)
+}
