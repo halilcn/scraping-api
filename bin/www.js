@@ -4,9 +4,13 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('scraping-api:server');
-var http = require('http');
+import app from '../app';
+import firstDebug from 'debug';
+import http  from 'http';  
+
+
+const debug = firstDebug('scraping-api:server')
+//var debug = require('debug')('scraping-api:server');
 
 /**
  * Get port from environment and store in Express.
