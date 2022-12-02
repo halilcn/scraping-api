@@ -1,8 +1,9 @@
+import asyncHandler from 'express-async-handler'
 import Advert from '../models/advert'
 
-const test = async (req, res, next) => {
-  const testRes = await Advert.find({})
-  res.json(testRes)
-}
+const index = asyncHandler(async (req, res, next) => {
+  const adverts = await Advert.find({})
+  res.json({ adverts })
+})
 
-export default { test }
+export default { index }
