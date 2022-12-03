@@ -3,8 +3,8 @@ import express from 'express'
 
 const app = express()
 
-require('./routes')(app)
 require('./middlewares/bootstrap-middleware')(app)
+require('./routes')(app)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

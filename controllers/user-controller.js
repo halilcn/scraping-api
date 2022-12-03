@@ -5,9 +5,7 @@ import User from '../models/user'
 import UserToken from '../models/user-token'
 
 const login = asyncHandler(async (req, res, next) => {
-    //const { password = 'test1', email = 'test2' } = req.body //TODO: !
-    const password = 'test1'
-    const email = 'test12@gmail.com'
+    const { password, email } = req.body
 
     const user = await User.findOne({ email })
 
@@ -22,9 +20,7 @@ const login = asyncHandler(async (req, res, next) => {
 })
 
 const register = asyncHandler(async (req, res, next) => {
-    //const { password = 'test1', email = 'test2' } = req.body //TODO: !
-    const password = 'test1'
-    const email = 'test12@gmail.com'
+    const { password, email } = req.body
 
     const saltForHash = await bcrypt.genSalt(10)
     const hashedPassword = bcrypt.hashSync(password, saltForHash)
