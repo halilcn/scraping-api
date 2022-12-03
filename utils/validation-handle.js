@@ -4,6 +4,6 @@ export default async (req, res, next, schema) => {
         next()
     } catch (err) {
         const errors = err.details.map(error => ({ message: error.message }))
-        res.status(422).json({ message: 'Invalid request', data: errors })
+        return res.status(422).json({ message: 'Invalid request', data: errors })
     }
 }

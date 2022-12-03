@@ -10,7 +10,7 @@ const login = asyncHandler(async (req, res, next) => {
     const user = await User.findOne({ email })
 
     const isCorrectPassword = await bcrypt.compareSync(password, user?.password || '')
-    if (!isCorrectPassword) res.status(400).json({ message: 'user does not exist' });
+    if (!isCorrectPassword) return res.status(400).json({ message: 'user does not exist' });
 
     const token = jwt.sign({ test: 'asd' }, process.env.JWT_TOKEN)
     await UserToken.deleteOne({ userId: user.id })
