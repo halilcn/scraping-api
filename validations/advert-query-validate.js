@@ -14,20 +14,21 @@ const roomCustomValidate = (value, helper) => {
     return value
 }
 
-//TODO: update 
 const schema = Joi.object().keys({
     status: Joi.string().valid(...STATUS_VALID),
     room: Joi.string().custom(roomCustomValidate),
     city: Joi.string(),
     district: Joi.string(),
     furnitureStatus: Joi.string().valid(...FURNITURE_STATUS_VALID),
-    minPrice: Joi.when('maxPrice', { is: Joi.number().integer(), then: Joi.number().integer().required() }),
-    maxPrice: Joi.when('minPrice', { is: Joi.number().integer(), then: Joi.number().integer().required() }),
-    //  minSquareMetres: Joi.number().integer().when('maxSquareMetres', { is: Joi.number().integer(), then: Joi.required() }),
-    //  maxSquareMetres: Joi.number().integer().when('minSquareMetres', { is: Joi.number().integer(), then: Joi.required() }),
-    //  minBuildingAge: Joi.number().integer().when('maxBuildingAge', { is: Joi.number().integer(), then: Joi.required() }),
-    //  maxBuildingAge: Joi.number().integer().when('minBuildingAge', { is: Joi.number().integer(), then: Joi.required() }),
-    //  company: Joi.string().valid(...SCRAPING_COMPANIES)
+    company: Joi.string().valid(...SCRAPING_COMPANIES),
+    minPrice: Joi.number().integer(),
+    maxPrice: Joi.number().integer(),
+    minSquareMetres: Joi.number().integer(),
+    maxSquareMetres: Joi.number().integer(),
+    minBuildingAge: Joi.number().integer(),
+    maxBuildingAge: Joi.number().integer(),
+    minDate: Joi.string(),
+    maxDate: Joi.string(),
 })
 
 export default (req, ...routerParams) => {
