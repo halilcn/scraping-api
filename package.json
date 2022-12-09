@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist && babel src --out-dir dist  --copy-files",
     "start": "node ./bin/www.js",
-    "start:dev": "nodemon --exec babel-node ./bin/www.js"
+    "start:dev": "nodemon --exec babel-node ./src/bin/www.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
