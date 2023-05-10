@@ -1,9 +1,12 @@
 import Joi from 'joi'
+import { NOTIFICATION } from '../constants'
 import validationHandle from '../utils/validation-handle'
 
 const schema = Joi.object().keys({
-  email: Joi.string().email().required(),
-  password: Joi.string().required(),
+  type: Joi.string()
+    .required()
+    .valid(...Object.values(NOTIFICATION)),
+  params: Joi.object().required(),
 })
 
 export default (...routerParams) => validationHandle(...routerParams, schema)
