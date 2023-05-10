@@ -1,0 +1,1 @@
+It is a part of a project regarding to collecting apart adverts on a few web pages in Turkey.
