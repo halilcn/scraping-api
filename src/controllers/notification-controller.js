@@ -9,4 +9,10 @@ const create = asyncHandler(async (req, res, next) => {
   res.status(201).json({ message: 'created' })
 })
 
-export default { create }
+const index = asyncHandler(async (req, res, next) => {
+  const notifications = await Notification.find({ userId: req.user._id })
+
+  res.json({ notifications })
+})
+
+export default { create, index }

@@ -5,5 +5,6 @@ import notificationCreateValidate from '../../validations/notification-create-va
 const router = express.Router()
 
 router.post('/', notificationCreateValidate, notificationController.create)
+router.get('/', notificationController.index)
 
 export default router
